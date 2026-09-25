@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+  PLACEMENT RECORD — do not lose this when the animated version comes back.
+
+  Original file : C:\Inspo\agency-styles\site-02-brutalist-04\index.html
+  Belongs to    : <header class="hero"> ... the FIRST child of <div class="wrap">
+  Position      : directly ABOVE the .hero-grid (h1 + lede + actions | hero-side),
+                  with margin-bottom: 36px separating it from the grid
+  Container     : .terminal — border:1px solid #fff; background:#111;
+                  max-width:640px; margin-bottom:36px
+  Context       : page background is #000; font is IBM Plex Mono;
+                  hero has padding: 90px 0 64px, min-height:100svh,
+                  justify-content:center (terminal sits in the vertical middle band)
+  Animations    : .cursor blinks via @keyframes caret (.9s steps(1) infinite);
+                  disabled under prefers-reduced-motion
+  Fonts         : Google Fonts — IBM Plex Mono 400/500/700 (+ Archivo Black for the page)
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NULLSET — Terminal extract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#000; --white:#fff; --blue:#2f6bff; --acid:#c8ff00;
+  --grey:#111; --muted:#8a8a8a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--black);color:var(--white);font-family:"IBM Plex Mono",monospace;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:90px 0 64px}
+.terminal{border:1px solid var(--white);background:var(--grey);margin-bottom:36px;max-width:640px;width:100%}
+.term-top{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-bottom:1px solid var(--white);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.term-body{padding:18px 16px;font-size:13.5px;line-height:1.7;min-height:120px}
+.term-body .p{color:var(--acid)}
+.term-body .c{color:var(--blue)}
+.term-body .cursor{display:inline-block;width:9px;height:15px;background:var(--acid);vertical-align:-2px;animation:caret .9s steps(1) infinite}
+@keyframes caret{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){
+  .term-body .cursor{animation:none;opacity:1}
+}
+</style>
+</head>
+<body>
+<div class="terminal" aria-hidden="true">
+  <div class="term-top"><span>~/nullset — session</span><span>STDOUT</span></div>
+  <div class="term-body" id="term">
+    <div><span class="p">$</span> <span class="c">npx</span> nullset init --stack full</div>
+    <div><span class="p">✓</span> frontend  · design system compiled</div>
+    <div><span class="p">✓</span> backend   · api contract locked</div>
+    <div><span class="p">✓</span> campaigns · meta · tiktok · ig · google</div>
+    <div><span class="p">$</span> ready<span class="cursor"></span></div>
+  </div>
+</div>
+</body>
+</html>
